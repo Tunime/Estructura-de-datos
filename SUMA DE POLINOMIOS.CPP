@@ -4,7 +4,7 @@
 //formamos la estructura del nodo
 struct nodo
 {
-	int num;
+	float num;
    int exp;
    nodo *sig;
 };
@@ -58,16 +58,26 @@ void main (void)
 
   q=p;
   y=x;
-  while(q!=NULL)
+  float a;
+  nodo *j,*k=NULL;
+
+  do
   {
-  	cout<<q->num;
-   cout<<" X^";
-   cout<<q->exp;
-   q=q->sig;
-  }
-  
+  		if(q->exp==y->exp)
+      {
+      	a=q->num+y->num;
 
+         j=new(nodo);
+      	j->num=a;
+  			j->exp=q->exp;                                          
+      	j->sig=k;
+      	k=j;
 
-
-	getch();
+         q=q->sig;
+      }
+      else
+      {
+      	y=y->sig;
+      }
+  }while(q!=NULL||y!=NULL);
 }
