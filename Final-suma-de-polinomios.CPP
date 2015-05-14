@@ -12,7 +12,7 @@ struct nodo
 };
 nodo *crear(nodo *p);
 void recorre(nodo *p);
-void suma(nodo *p, nodo¨*q);
+void suma(nodo *p, nodo*q);
 
 void main(void)
 {
@@ -79,8 +79,34 @@ void recorre(nodo *p)
 			j=j->sig;
 		}
 }
-void suma(nodo *p, nodo¨*q)
+void suma(nodo *p, nodo*q)
 {
+	nodo *a,*x,*b,*s,*f,*h;
+   s=NULL;
+   a=p;
+   b=q;
+   f=a;
+   h=b;
+   while(a!=NULL&&b!=NULL)
+	{
+   	if(a->exp==b->exp)
+   	{
+   		x=new(nodo);
+         x->num=a->num+b->num;
+         x->exp=a->exp;
+         x->sig=s;
+         s=x;
+       	f=f->sig;
+   	}
+      else
+      {
+      	h=h->sig;
+
+      }
+
+   }
+   recorre(s);
+
 
 
 
